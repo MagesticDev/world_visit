@@ -21,6 +21,7 @@ public class InputStreamOperations {
             throw new RuntimeException("Cannot convert stream to string", e);
         }
         // On retourne la chaine contenant les donnees de l'InputStream
+
         return out.toString();
     }
 

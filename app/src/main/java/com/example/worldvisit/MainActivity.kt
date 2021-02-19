@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun addCountry(view: View?) {
-        val intent = Intent(this, Research::class.java)
+        val intent = Intent(this, ListeActivity::class.java)
         /*intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);*/startActivity(intent)
     }
 }
