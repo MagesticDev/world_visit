@@ -7,10 +7,15 @@ import android.view.View
 import android.widget.CalendarView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.worldvisit.database.DatabaseHelper
 import java.util.*
 
 class Validation : AppCompatActivity() {
+    private var databaseHelper: DatabaseHelper? = null
+    var date = String()
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        databaseHelper = DatabaseHelper(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_validation)
         val calendarView = findViewById<View>(R.id.calendar) as CalendarView
@@ -48,8 +53,8 @@ class Validation : AppCompatActivity() {
         }
 
         // Traitement de l'affichage du jours et du mois (qui ne marche pas ...)
-        val displayYear = year
-        val displayedDay = "$dayOfWeek. $dayOfMonth $month."
+        val displayedDay = "$dayOfWeek. $dayOfMonth $month $year"
+        date = displayedDay.format("$dayOfMonth ${month[2]} $year")
         //yearView.setText(displayYear);
         day.text = displayedDay
         // perform setOnDateChangeListener event on CalendarView
@@ -59,6 +64,7 @@ class Validation : AppCompatActivity() {
     }
 
     fun backToHome(view: View?) {
+        this.databaseHelper!!.addpaysDetail("Espagne", "Madrid", "Europe", "$date", "ES");
         finish()
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
