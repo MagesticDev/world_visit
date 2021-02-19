@@ -52,7 +52,6 @@ class Validation : AppCompatActivity() {
             11 -> month = "Décembre";
         }
 
-        // Traitement de l'affichage du jours et du mois (qui ne marche pas ...)
         val displayedDay = "$dayOfWeek. $dayOfMonth $month $year"
         date = displayedDay.format("$dayOfMonth ${month[2]} $year")
         //yearView.setText(displayYear);
