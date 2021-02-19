@@ -9,34 +9,22 @@ import com.example.worldvisit.ws.Pays
 import com.example.worldvisit.ws.ReseauHelper
 import com.example.worldvisit.ws.RetrofitSingleton
 import com.example.worldvisit.ws.WSInterface
+import kotlinx.android.synthetic.main.activity_research.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ListeActivity : AppCompatActivity() {
-
-    //Retrofit
+class ResearchActivity : AppCompatActivity() {
     private val serviceRetrofit = RetrofitSingleton.retrofit.create(WSInterface::class.java)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_liste)
-        // layout manager, décrivant comment les items sont disposés :
-//        val layoutManager = LinearLayoutManager(this)
-//        liste_pays.layoutManager = layoutManager
-        
-        recuperePays()
-        
+        setContentView(R.layout.activity_research)
+        val layoutManager = LinearLayoutManager(this)
+        my_recycle_view.layoutManager = layoutManager
 
-
-    }
-
-
-    fun recuperePays(){
 
         // vérification de l'état de la connexion internet :
-        if (!ReseauHelper.estConnecte(this))
-        {
+        if (!ReseauHelper.estConnecte(this)) {
             Log.d("tag", "Test Réseau")
             Toast.makeText(this, "vous n'avez pas de connexion internet", Toast.LENGTH_LONG).show()
             return
@@ -46,26 +34,29 @@ class ListeActivity : AppCompatActivity() {
         val call = serviceRetrofit.wsGet()
         call.enqueue(object : Callback<List<Pays>> {
 
-            override fun onResponse(call: Call<List<Pays>>, response: Response<List<Pays>>){
+            override fun onResponse(
+                call: Call<List<Pays>>,
+                response: Response<List<Pays>>
+            ) {
                 Log.d("tag", "Response: ${response.code()}")
-                if(response.isSuccessful){
-                    val retourWSpays = response.body()
-                    Log.d("tag", retourWSpays.toString())
+                if (response.isSuccessful) {
+                    val retourWS = response.body()
+                    Log.d("tag", retourWS.toString())
 
                     // à ajouter pour de meilleures performances :
-//                    liste_pays.setHasFixedSize(true)
+                    my_recycle_view.setHasFixedSize(true)
 
-                    val vehiculesAdapter = retourWSpays?.let {
-                        PaysAdapter(it.toMutableList(),this@ListeActivity)
+                    val paysAdapter = retourWS?.let {
+                        HomePaysAdapter(it.toMutableList())
                     }
-//                    liste_pays.adapter = vehiculesAdapter
+                    my_recycle_view.adapter = paysAdapter
                 }
             }
-            override fun onFailure(call: Call<List<Pays>>, t: Throwable){
+
+            override fun onFailure(call: Call<List<Pays>>, t: Throwable) {
                 Log.d("tag", "OnFailure: ${t.message}")
             }
         })
 
     }
 }
-

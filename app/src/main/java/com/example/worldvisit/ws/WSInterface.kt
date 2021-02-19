@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 interface WSInterface {
     // appel get :
-    @GET("get-pays.php")
+    @GET("all/")
     fun wsGet() : Call<List<Pays>>
 
 }

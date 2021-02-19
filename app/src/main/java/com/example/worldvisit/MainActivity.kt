@@ -2,45 +2,45 @@ package com.example.worldvisit
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.worldvisit.database.DatabaseHelper
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    private var btnStore: Button? = null
-    private var btnGetall: Button? = null
-    private var etname: EditText? = null
     private var databaseHelper: DatabaseHelper? = null
-    private var tvnames: TextView? = null
-    private var arrayList: ArrayList<String>? = null
+    private var mRecyclerView: RecyclerView? = null
+    private var mLayoutManager: RecyclerView.LayoutManager? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         databaseHelper = DatabaseHelper(this)
-        tvnames = findViewById(R.id.tvnames) as TextView
-        btnStore = findViewById(R.id.btnstore) as Button
-        btnGetall = findViewById(R.id.btnget) as Button
-        etname = findViewById(R.id.etname) as EditText
-        btnStore!!.setOnClickListener { /*databaseHelper.addpaysDetail(etname.getText().toString());*/
-            etname!!.setText("")
-            Toast.makeText(this@MainActivity, "Stored Successfully!", Toast.LENGTH_SHORT).show()
-        }
-        btnGetall!!.setOnClickListener {
-            arrayList = databaseHelper!!.getAllpaysList()
-            tvnames!!.text = ""
-            for (i in arrayList!!.indices) {
-                tvnames!!.text = tvnames!!.text.toString() + ", " + arrayList!![i]
-            }
-        }
+        // this.databaseHelper!!.addpaysDetail("New york", "blabla", "etat unis", "15/09/1995", "en");
+        Log.e("warning", this.databaseHelper!!.allpaysList.toString())
+
+        mRecyclerView = findViewById<View>(R.id.my_recycle_view) as RecyclerView
+
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView!!.setHasFixedSize(true)
+
+        // use a linear layout manager
+        mLayoutManager = LinearLayoutManager(this)
+        mRecyclerView!!.layoutManager = mLayoutManager
+
+        val paysList = this.databaseHelper!!.allpaysList;
+        Log.e("warning", paysList.toString())
+        val mAdapter = HomePaysAdapter(paysList)
+        mRecyclerView!!.adapter = mAdapter
+
+
     }
 
     fun addCountry(view: View?) {
-        val intent = Intent(this, ListeActivity::class.java)
+        val intent = Intent(this, ResearchActivity::class.java)
         /*intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);*/startActivity(intent)
     }
 }

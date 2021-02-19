@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.worldvisit.Research">
+    tools:context=".ResearchActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -32,21 +32,9 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:background="@color/colorAccent"
-            android:onClick="validateVisit"
+
             android:text="@string/okok" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/editText"
-            android:layout_marginTop="14dp"
-            android:text="Nous n'avons pas réussi à afficher les données bien qu'elles soient récupérées et stockées"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:gravity="center_horizontal" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/my_recycle_view"
@@ -54,7 +42,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView"
+            android:layout_below="@+id/editText"
             android:layout_marginTop="14dp"
             tools:layout_editor_absoluteY="511dp">
 
