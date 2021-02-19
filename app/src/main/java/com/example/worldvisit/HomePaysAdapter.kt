@@ -3,10 +3,20 @@ package com.example.worldvisit
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+<<<<<<< HEAD
 import androidx.recyclerview.widget.RecyclerView
 import com.example.worldvisit.ws.Pays
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.view_pays.view.*
+=======
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.worldvisit.ws.Pays
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.item_pays.view.*
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+>>>>>>> origin/master
 
 
 class HomePaysAdapter(var listePays: MutableList<Pays>): RecyclerView.Adapter<HomePaysAdapter.PaysViewHolder>() {

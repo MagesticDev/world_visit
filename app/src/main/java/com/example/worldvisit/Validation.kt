@@ -28,7 +28,7 @@ class Validation : AppCompatActivity() {
         var dayOfWeek = String()
         var month = String()
         Log.i("TAG", "${Calendar.DAY_OF_WEEK}")
-        when (wDay){
+         when (wDay){
             0 -> dayOfWeek = "Sam";
             1 -> dayOfWeek = "Dim";
             2 -> dayOfWeek = "Lun";
@@ -68,4 +68,8 @@ class Validation : AppCompatActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/master
