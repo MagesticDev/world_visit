@@ -17,10 +17,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * Created by Erwann on 15/04/2018.
- */
-
 public class MyAdapter extends RecyclerView.Adapter<com.example.worldvisit.MyAdapter.MyViewHolder> {
     private String[][] countries;
 

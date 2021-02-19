@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ynov.worldvisit.Research">
+    tools:context="com.example.worldvisit.Research">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -45,9 +45,10 @@
             android:layout_marginTop="14dp"
             android:text="Nous n'avons pas réussi à afficher les données bien qu'elles soient récupérées et stockées"
             android:textAlignment="center"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:gravity="center_horizontal" />
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/my_recycle_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -57,8 +58,8 @@
             android:layout_marginTop="14dp"
             tools:layout_editor_absoluteY="511dp">
 
-        </android.support.v7.widget.RecyclerView>
+        </androidx.recyclerview.widget.RecyclerView>
 
     </RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

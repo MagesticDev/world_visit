@@ -1,9 +1,5 @@
 package com.example.worldvisit;
 
-/**
- * Created by Erwann on 14/04/2018.
- */
-
 class Country {
 
     String name = new String();
