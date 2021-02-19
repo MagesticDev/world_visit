@@ -56,7 +56,7 @@ class DatabaseHelper(context: Context?) : SQLiteOpenHelper(
     // looping through all rows and adding to list
     val allpaysList: ArrayList<Pays>
         get() {
-           val selectQuery =
+            val selectQuery =
                 "SELECT  * FROM $TABLE_pays"
             val db = this.readableDatabase
             val c = db.rawQuery(selectQuery, null)
