@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">world visit</string>
+    <string name="app_name">World Visit</string>
+    <string name="searchbar">Saisir un pays ...</string>
+    <string name="okok">OK</string>
+    <string name="addCountry">Ajouter un pays</string>
+    <string name="validVisit">Valider</string><!--Celui-ci bug donc je l'ai écris en brut dans l'activité-->
 </resources>
