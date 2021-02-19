@@ -29,8 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:firstDayOfWeek="2"
-            android:maxDate="01/01/2019"
-            android:minDate="01/01/2018"
+            android:maxDate="01/01/2100"
+            android:minDate="01/01/2000"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="29dp"
             tools:layout_editor_absoluteY="152dp" />
