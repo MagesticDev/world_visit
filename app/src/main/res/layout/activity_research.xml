@@ -32,6 +32,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:background="@color/colorAccent"
+            android:onClick="calendar"
 
             android:text="@string/okok" />
 

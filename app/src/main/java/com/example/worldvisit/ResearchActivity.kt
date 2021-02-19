@@ -1,8 +1,10 @@
 package com.example.worldvisit
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.worldvisit.ws.Pays
@@ -58,5 +60,10 @@ class ResearchActivity : AppCompatActivity() {
             }
         })
 
+    }
+
+    fun calendar(view: View){
+        val intent = Intent(this, Validation::class.java)
+        startActivity(intent)
     }
 }
